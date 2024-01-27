@@ -60,6 +60,17 @@
     /**
      * {@inheritdoc}
      */
+    public function validateForm(array &$form, FormStateInterface $form_state) {
+        $value = $form_state->getValue('email');
+        if ( !(\Drupal::service('email.validator')->isValid($value)) ) {
+            $form_state->setErrorByName('email',
+            $this->t('It appears that %mail is not a valid email address. Please try
+            agin', ['%mail' => $value]));
+        }
+    }
+    /**
+     * {@inheritdoc}
+     */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         $submitted_email = $form_state->getValue('email');
         $this->messenger()->addMessage(t("The form is working! You enter @entry.",
