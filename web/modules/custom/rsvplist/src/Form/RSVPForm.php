@@ -5,10 +5,10 @@
  * A form to collect an email address for RSVP details.
  */
 
- namespace Durpal\rsvplist\Form;
+ namespace Drupal\rsvplist\Form;
 
- use Drupal\Core\FormBase;
- use Drupal\Core\Form\FormBaseInterface;
+ use Drupal\Core\Form\FormBase;
+ use Drupal\Core\Form\FormStateInterface;
 
  class RSVPForm extends FormBase {
 
@@ -31,12 +31,11 @@
         if ( !(is_null($node)) ) {
             $nid = $node->id();
         }
-        else{
+        else {
             // If a node could not be loaded, default to 0;
             $nid = 0;
         }
-
-        $nid = $node->id();
+        
         // Establish the $form render array. It has an email text field,
         // a submit button, and a hidden field containing the node ID
         $form['email'] = [
