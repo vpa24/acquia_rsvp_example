@@ -39,6 +39,12 @@
                 'not null' => FALSE,
                 'default' => '',
             ],
+            'created' => [
+                'description' => 'Timestamp for when RSVP was created.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ],
         ],
         'primary key' => ['id'],
         'indexes' => [
