@@ -118,7 +118,7 @@
         catch (\Exception $e) {
             \Drupal::messenger()->addError(
                 t('Unable to save RSVP settings at this time due to database errror.
-                Please try again later.')
+                Please try again later. @query', ['@query' => $query->__toString()])
             );
         }
 
