@@ -83,7 +83,7 @@
             // Demonstration for how to load a full user object of the current user.
             // This $full_user variable is not needed for this code,
             // but is shown for demontration purposes.
-            $full_user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+            $full_user = \Drupal\user\Entity\User::load($uid);
 
             // Obtain values as entered into the Form.
             $nid = $form_state->getValue('nid');
